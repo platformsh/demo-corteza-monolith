@@ -1,0 +1,14 @@
+
+# Opting to use Oracle MySQL instead of MariaDB
+# Corteza uses the percona:8.0 docker image, so keeping the version consistent
+mysqldb:
+    type: oracle-mysql:8.0
+    disk: 1024
+    configuration:
+        schemas:
+            - corteza
+        endpoints:
+            corteza:
+                default_schema: corteza
+                privileges:
+                    corteza: admin

@@ -26,3 +26,5 @@ Dockerfile.*
 Gopkg.*
 LICENSE
 Makefile
+!.env.platformsh
+!.environment

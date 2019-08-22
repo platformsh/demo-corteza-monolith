@@ -21,9 +21,26 @@ hooks:
         # Necessary dependencies are already present on build image
 
         ##########
-        # Not directly using build.d/10-build-tools
-        # - `wait-for-it.sh` isn't necessary
-        # - Dependencies have been moved to module management (go.mod)
+        # Include dependencies from build.d/10-build-tools
+
+        # Install wait-for-it.sh
+        echo "Installing wait-for-it.sh..."
+        WFI=/usr/local/bin/wait-for-it.sh
+        wget -q -O ${WFI} https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh
+        chmod a+x ${WFI}
+
+        # Install build tools
+        echo "Installing overalls..."
+        go get -u github.com/go-playground/overalls
+
+        echo "Installing gomock..."
+        go get -u github.com/golang/mock/gomock
+
+        echo "Installing mockgen..."
+        go get -u github.com/golang/mock/mockgen
+
+        echo "Installing goware/statik..."
+        go get -u github.com/goware/statik
 
         ########################################################################
         # Building the backend server

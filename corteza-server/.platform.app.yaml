@@ -24,6 +24,7 @@ hooks:
         # Include dependencies from build.d/10-build-tools
 
         # Install wait-for-it.sh
+        mkdir "${PLATFORM_APP_DIR}/bin"
         echo "Installing wait-for-it.sh..."
         WFI="${PLATFORM_APP_DIR}/bin/wait-for-it.sh"
         wget -q -O ${WFI} https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh

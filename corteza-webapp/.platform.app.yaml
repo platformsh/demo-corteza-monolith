@@ -1,0 +1,39 @@
+name: webapp
+type: nodejs:10
+disk: 1024
+
+dependencies:
+    nodejs:
+        yarn: "*"
+        platformsh-config: "*"
+
+hooks:
+    build: |
+        set -e
+
+        yarn global add @vue/cli
+        yarn install
+
+        # Move the configuration file into place.
+        # This file uses the Platform.sh Node.js Config Reader
+        # to get the host addresses of the relationships defined below
+        cp public/config.platformsh.js public/config.js
+
+        # Build the application for production
+        yarn run build
+
+        mv dist webapp
+
+web:
+    upstream:
+        socket_family: tcp
+        protocol: http
+    locations:
+        "/":
+            root: "webapp"
+            passthru: "/index.html"
+
+relationships:
+    systemapi: "server:http"
+    messagingapi: "server:http"
+    composeapi: "server:http"

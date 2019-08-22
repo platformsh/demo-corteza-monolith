@@ -25,7 +25,7 @@ hooks:
 
         # Install wait-for-it.sh
         echo "Installing wait-for-it.sh..."
-        WFI=/usr/local/bin/wait-for-it.sh
+        WFI="${PLATFORM_APP_DIR}/bin/wait-for-it.sh"
         wget -q -O ${WFI} https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for-it.sh
         chmod a+x ${WFI}
 

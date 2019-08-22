@@ -1,0 +1,19 @@
+"https://{default}/":
+    type: upstream
+    upstream: "webapp:http"
+
+"https://api.{default}/":
+    type: upstream
+    upstream: "webapp:http"
+
+"https://system.api.{default}/":
+    type: upstream
+    upstream: "webapp:http"
+
+"https://messaging.api.{default}/":
+    type: upstream
+    upstream: "webapp:http"
+
+"https://compose.api.{default}/":
+    type: upstream
+    upstream: "webapp:http"

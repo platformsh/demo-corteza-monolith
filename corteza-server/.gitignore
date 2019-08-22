@@ -26,6 +26,7 @@ profile.coverprofile
 !system
 !.editorconfig
 !.platform.app.yaml
+!build.sh
 !codegen.sh
 !go.*
 !Makefile

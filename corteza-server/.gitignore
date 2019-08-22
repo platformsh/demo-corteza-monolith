@@ -14,3 +14,18 @@ profile.coverprofile
 # Subtree gitinclude
 /*
 !.gitignore
+!api/
+!cmd
+!codegen
+!compose
+!internal
+!messaging
+!monolith
+!pkg
+!scripts
+!system
+!.editorconfig
+!.platform.app.yaml
+!codegen.sh
+!go.*
+!Makefile

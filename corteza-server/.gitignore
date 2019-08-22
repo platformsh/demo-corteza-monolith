@@ -10,3 +10,7 @@ profile.coverprofile
 /build
 /var
 /TODO
+
+# Subtree gitinclude
+/*
+!.gitignore

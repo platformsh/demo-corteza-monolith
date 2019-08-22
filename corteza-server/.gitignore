@@ -11,22 +11,18 @@ profile.coverprofile
 /var
 /TODO
 
-# Subtree gitinclude
-/*
-!.gitignore
-!api/
-!cmd
-!codegen
-!compose
-!internal
-!messaging
-!monolith
-!pkg
-!scripts
-!system
-!.editorconfig
-!.platform.app.yaml
-!build.sh
-!codegen.sh
-!go.*
-!Makefile
+# Ignore these files because they're not necessary for the subtree
+.github
+/docs
+/vendor
+.dockerignore
+.drone.yml
+.project
+.realize.yaml
+codecov.yml
+/*.md
+DCO
+Dockerfile.*
+Gopkg.*
+LICENSE
+Makefile

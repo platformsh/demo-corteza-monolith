@@ -2,6 +2,8 @@ package options
 
 import (
 	"time"
+	sqldsn "github.com/platformsh/config-reader-go/v2/sqldsn"
+	psh "github.com/platformsh/config-reader-go/v2"
 )
 
 type (
@@ -15,8 +17,26 @@ type (
 )
 
 func DB(pfix string) (o *DBOpt) {
+	// Creating a psh.RuntimeConfig struct
+	config, err := psh.NewRuntimeConfig()
+	if err != nil {
+		panic("Not in a Platform.sh Environment.")
+	}
+
+	// Accessing the database relationship Credentials struct
+	credentials, err := config.Credentials("db")
+	if err != nil {
+		panic(err)
+	}
+
+	// Using the sqldsn formatted credentials package
+	formatted, err := sqldsn.FormattedCredentials(credentials)
+	if err != nil {
+		panic(err)
+	}
+
 	o = &DBOpt{
-		DSN:      "corteza:corteza@tcp(db:3306)/corteza?collation=utf8mb4_general_ci",
+		DSN:      formatted,
 		Logger:   false,
 		MaxTries: 100,
 		Delay:    5 * time.Second,

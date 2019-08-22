@@ -10,3 +10,5 @@ profile.coverprofile
 /build
 /var
 /TODO
+
+!.env.platformsh

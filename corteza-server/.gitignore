@@ -10,21 +10,3 @@ profile.coverprofile
 /build
 /var
 /TODO
-
-# Ignore these files because they're not necessary for the subtree
-.github
-/docs
-/vendor
-.dockerignore
-.drone.yml
-.project
-.realize.yaml
-codecov.yml
-/*.md
-DCO
-Dockerfile.*
-Gopkg.*
-LICENSE
-Makefile
-!.env.platformsh
-!.environment

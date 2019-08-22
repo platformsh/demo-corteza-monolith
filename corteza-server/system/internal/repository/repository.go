@@ -5,7 +5,7 @@ import (
 
 	"github.com/lann/builder"
 	"github.com/titpetric/factory"
-	squirrel "gopkg.in/Masterminds/squirrel.v1"
+	squirrel "github.com/Masterminds/squirrel"
 
 	"github.com/cortezaproject/corteza-server/internal/auth"
 )

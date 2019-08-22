@@ -4,7 +4,7 @@ import (
 	"context"
 
 	"github.com/titpetric/factory"
-	"gopkg.in/Masterminds/squirrel.v1"
+	"github.com/Masterminds/squirrel"
 
 	"github.com/cortezaproject/corteza-server/messaging/types"
 )

@@ -6,7 +6,7 @@ import (
 	"time"
 
 	"github.com/titpetric/factory"
-	"gopkg.in/Masterminds/squirrel.v1"
+	"github.com/Masterminds/squirrel"
 
 	"github.com/cortezaproject/corteza-server/system/types"
 )

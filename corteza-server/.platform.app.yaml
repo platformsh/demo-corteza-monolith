@@ -1,0 +1,84 @@
+name: server
+type: golang:1.12
+disk: 1024
+
+variables:
+    env:
+        APP: "monolith"
+        DST: "bin"
+
+hooks:
+    build: |
+        set -ue
+
+        ########################################################################
+        # Creating the build environment for the server
+        # Source: github.com/cortezaproject/corteza-server-builder
+        ########################################################################
+
+        ##########
+        # Omitting build.d/00-provision
+        # Necessary dependencies are already present on build image
+
+        ##########
+        # Not directly using build.d/10-build-tools
+        # - `wait-for-it.sh` isn't necessary
+        # - Dependencies have been moved to module management (go.mod)
+
+        ########################################################################
+        # Building the backend server
+        # Source: github.com/cortezaproject/corteza-server
+        # Following the pattern of Dockerfile.corteza-server
+        ########################################################################
+
+        ##########
+        # Building the bin
+        # Dockerfile: `RUN scripts/builder-make-bin.sh monolith /tmp/corteza-server`
+        # Source: scripts/builder-make-bin.sh
+
+        BUILD_TIME=${BUILD_TIME:-$(date +%FT%T%z)}
+        GIT_TAG=${GIT_TAG:-"latest"}
+
+        # APP and DST var are now in `variables.env` block above
+
+        LDFLAGS=""
+        LDFLAGS="${LDFLAGS} -X github.com/cortezaproject/corteza-server/internal/version.BuildTime=${BUILD_TIME}"
+        LDFLAGS="${LDFLAGS} -X github.com/cortezaproject/corteza-server/internal/version.Version=${GIT_TAG}"
+
+        go build -ldflags "${LDFLAGS}" -o "${DST}/corteza-server-${APP}" ./cmd/${APP}/*.go
+
+        ##########
+        # Configuring the environment
+        # - Data volumes are set below in the `mounts` block
+        # - Ports 80 and 443 are automatically exposed
+        # - The entrypoint and cmd are defined in the `web.start` block
+
+        #########
+        # Move .environment file into place
+        mv .env.platformsh .environment
+
+relationships:
+    db: "mysqldb:corteza"
+
+mounts:
+    'data/compose':
+        source: local
+        source_path: data_compose
+    'data/messaging':
+        source: local
+        source_path: data_messaging
+    'data/system':
+        source: local
+        source_path: data_system
+
+web:
+    upstream:
+        socket_family: tcp
+        protocol: http
+    commands:
+        start: ./${DST}/corteza-server-${APP} serve-api
+    locations:
+        /:
+            # This will direct all requests to the server unconditionally
+            allow: false
+            passthru: true

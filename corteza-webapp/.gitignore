@@ -12,3 +12,11 @@ dist
 *.njsproj
 *.sln
 *.sw*
+
+# Ignore these files because they're not necessary for the subtree
+.github
+.browserslistrc
+.drone.yml
+/*.md
+DCO
+LICENSE

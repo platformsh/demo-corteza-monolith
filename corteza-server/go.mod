@@ -13,9 +13,8 @@ require (
 	github.com/getsentry/sentry-go v0.2.1
 	github.com/go-chi/chi v3.3.2+incompatible
 	github.com/go-chi/cors v1.0.0
-	github.com/go-chi/jwtauth v3.3.0+incompatible
 	github.com/golang/mock v1.3.1
-	github.com/gomodule/redigo v2.0.0+incompatible
+	github.com/gomodule/redigo v1.7.0 // indirect
 	github.com/gorilla/context v1.1.1 // indirect
 	github.com/gorilla/sessions v1.2.0
 	github.com/gorilla/websocket v1.4.0
@@ -25,6 +24,8 @@ require (
 	github.com/kr/pretty v0.1.0 // indirect
 	github.com/lann/builder v0.0.0-20180802200727-47ae307949d0
 	github.com/markbates/goth v1.56.0
+	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
+	github.com/modern-go/reflect2 v1.0.1 // indirect
 	github.com/pkg/errors v0.8.1
 	github.com/platformsh/config-reader-go/v2 v2.2.3
 	github.com/pquerna/cachecontrol v0.0.0-20180517163645-1555304b9b35 // indirect

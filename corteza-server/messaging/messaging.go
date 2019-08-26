@@ -3,7 +3,7 @@ package messaging
 import (
 	"context"
 
-	"github.com/go-chi/chi"
+	"github.com/go-chi/chi/v3"
 	_ "github.com/joho/godotenv/autoload"
 	"github.com/spf13/cobra"
 	"github.com/titpetric/factory"

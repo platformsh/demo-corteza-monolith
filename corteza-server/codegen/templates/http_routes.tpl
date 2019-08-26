@@ -5,7 +5,7 @@ package {package}
 import (
 	"net/http"
 
-	"github.com/go-chi/chi"
+	"github.com/go-chi/chi/v3"
 )
 
 func ({self}h *{name|expose}Handlers)MountRoutes(r chi.Router, middlewares ...func(http.Handler) http.Handler) {

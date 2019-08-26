@@ -8,7 +8,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/go-chi/chi"
+	"github.com/go-chi/chi/v3"
 	"github.com/markbates/goth"
 	"github.com/markbates/goth/gothic"
 	"github.com/titpetric/factory/resputil"

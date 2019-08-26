@@ -10,7 +10,7 @@ import (
 	"encoding/json"
 	"mime/multipart"
 
-	"github.com/go-chi/chi/v3"
+	"github.com/go-chi/chi"
 	"github.com/pkg/errors"
 
 {if !empty($imports)}{foreach ($imports as $import)}

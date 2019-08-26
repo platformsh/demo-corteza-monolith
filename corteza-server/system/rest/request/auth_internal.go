@@ -23,7 +23,7 @@ import (
 	"mime/multipart"
 	"net/http"
 
-	"github.com/go-chi/chi/v3"
+	"github.com/go-chi/chi"
 	"github.com/pkg/errors"
 )
 

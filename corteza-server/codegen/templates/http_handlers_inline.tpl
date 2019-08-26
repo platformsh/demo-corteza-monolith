@@ -7,7 +7,7 @@ import (
 
 	"net/http"
 
-	"github.com/go-chi/chi/v3"
+	"github.com/go-chi/chi"
 	"github.com/titpetric/factory/resputil"
 
 	"github.com/cortezaproject/corteza-server/{project}/rest/request"

@@ -10,7 +10,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/go-chi/chi/v3"
+	"github.com/go-chi/chi"
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
 	"github.com/titpetric/factory/resputil"

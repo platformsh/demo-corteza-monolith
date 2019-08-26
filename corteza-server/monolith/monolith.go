@@ -3,7 +3,7 @@ package monolith
 import (
 	"context"
 
-	"github.com/go-chi/chi/v3"
+	"github.com/go-chi/chi"
 	_ "github.com/joho/godotenv/autoload"
 	"github.com/spf13/cobra"
 

@@ -1,7 +1,7 @@
 package rest
 
 import (
-	"github.com/go-chi/chi/v3"
+	"github.com/go-chi/chi"
 
 	"github.com/cortezaproject/corteza-server/internal/auth"
 	"github.com/cortezaproject/corteza-server/messaging/rest/handlers"

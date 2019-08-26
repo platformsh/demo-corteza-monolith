@@ -5,7 +5,7 @@ import (
 	"net/http"
 
 	sentry "github.com/getsentry/sentry-go"
-	"github.com/go-chi/chi/v3"
+	"github.com/go-chi/chi"
 	"go.uber.org/zap"
 
 	"github.com/cortezaproject/corteza-server/messaging/internal/repository"

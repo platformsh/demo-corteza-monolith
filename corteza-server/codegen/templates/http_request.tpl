@@ -5,7 +5,7 @@ package {package}
 import (
 	"net/http"
 
-	"github.com/go-chi/chi/v3"
+	"github.com/go-chi/chi"
 )
 
 var _ = chi.URLParam

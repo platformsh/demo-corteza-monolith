@@ -6,7 +6,7 @@ import (
 	"reflect"
 	"runtime"
 
-	"github.com/go-chi/chi/v3"
+	"github.com/go-chi/chi"
 	"github.com/go-chi/chi/middleware"
 )
 

@@ -11,7 +11,7 @@ require (
 	github.com/disintegration/imaging v1.6.0
 	github.com/edwvee/exiffix v0.0.0-20190810152521-16aac9658f23
 	github.com/getsentry/sentry-go v0.2.1
-	github.com/go-chi/chi v4.0.2+incompatible
+	github.com/go-chi/chi v3.3.4+incompatible
 	github.com/go-chi/cors v1.0.0
 	github.com/golang/mock v1.3.1
 	github.com/gomodule/redigo v1.7.0

@@ -7,7 +7,7 @@ import (
 	"time"
 
 	"github.com/dgrijalva/jwt-go"
-	"github.com/go-chi/jwtauth/v4"
+	"gopkg.in/go-chi/jwtauth.v4"
 	"github.com/pkg/errors"
 	"github.com/titpetric/factory/resputil"
 )

@@ -3,7 +3,7 @@ package logger
 import (
 	"context"
 
-	"github.com/go-chi/chi/middleware"
+	"gopkg.in/go-chi/chi.v3/middleware"
 	"go.uber.org/zap"
 )
 

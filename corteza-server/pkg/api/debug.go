@@ -6,8 +6,8 @@ import (
 	"reflect"
 	"runtime"
 
-	"github.com/go-chi/chi"
-	"github.com/go-chi/chi/middleware"
+	"gopkg.in/go-chi/chi.v3"
+	"gopkg.in/go-chi/chi.v3/middleware"
 )
 
 func Debug(r chi.Router) {

@@ -5,7 +5,7 @@ import (
 	"os"
 	"runtime/debug"
 
-	"github.com/go-chi/chi/middleware"
+	"gopkg.in/go-chi/chi.v3/middleware"
 	"go.uber.org/zap"
 
 	sentryhttp "github.com/getsentry/sentry-go/http"

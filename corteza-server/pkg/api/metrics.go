@@ -5,7 +5,7 @@ import (
 
 	"github.com/766b/chi-prometheus"
 	"github.com/99designs/basicauth-go"
-	"github.com/go-chi/chi"
+	"gopkg.in/go-chi/chi.v3"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 )
 

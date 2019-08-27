@@ -39,7 +39,7 @@ hooks:
 
         echo "Installing mockgen..."
         go get -u github.com/golang/mock/mockgen
-        
+
         echo "Installing goware/statik..."
         go get -u github.com/goware/statik
 
@@ -57,6 +57,12 @@ hooks:
         BUILD_TIME=${BUILD_TIME:-$(date +%FT%T%z)}
         GIT_TAG=${GIT_TAG:-"latest"}
 
+        echo $GOPATH
+
+        # Create working directory
+        mkdir -p "${PLATFORM_APP_DIR}/go/src/github.com/cortezaproject/corteza-server"
+        mv * "${PLATFORM_APP_DIR}/go/src/github.com/cortezaproject/corteza-server/"
+        cd "${PLATFORM_APP_DIR}/go/src/github.com/cortezaproject/corteza-server/"
         # APP and DST var are now in `variables.env` block above
 
         LDFLAGS=""

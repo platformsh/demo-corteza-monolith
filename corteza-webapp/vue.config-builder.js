@@ -40,7 +40,7 @@ module.exports = ({ appName, appLabel, version, theme, packageAlias, root = path
       plugins: [
         new webpack.DefinePlugin({
           WEBAPP: JSON.stringify(appLabel),
-          VERSION: JSON.stringify(version || ('' + exec('git describe --always --tags')).trim()),
+          VERSION: JSON.stringify(version || "latest"),
           BUILD_TIME: JSON.stringify((new Date()).toISOString()),
         }),
       ],

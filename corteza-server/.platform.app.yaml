@@ -57,8 +57,6 @@ hooks:
         BUILD_TIME=${BUILD_TIME:-$(date +%FT%T%z)}
         GIT_TAG=${GIT_TAG:-"latest"}
 
-        echo $GOPATH
-
         # Create working directory
         mkdir -p "${PLATFORM_APP_DIR}/go/src/github.com/cortezaproject/corteza-server"
         mv * "${PLATFORM_APP_DIR}/go/src/github.com/cortezaproject/corteza-server/"

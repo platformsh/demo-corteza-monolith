@@ -530,7 +530,7 @@
 
 [[projects]]
   digest = "1:14a90eb1290bd0aa42848afa9ee2c9ce247abdb63c2cf614331670119760962f"
-  name = "gopkg.in/Masterminds/squirrel.v1"
+  name = 	"gopkg.in/Masterminds/squirrel.v1"
   packages = ["."]
   pruneopts = "UT"
   revision = "fa735ea14f09f8685fcf5e75db091feb5a410730"
@@ -611,7 +611,7 @@
     "go.uber.org/zap/zapcore",
     "golang.org/x/crypto/bcrypt",
     "golang.org/x/crypto/ssh/terminal",
-    "gopkg.in/Masterminds/squirrel.v1",
+    	"gopkg.in/Masterminds/squirrel.v1",
     "gopkg.in/mail.v2",
   ]
   solver-name = "gps-cdcl"

@@ -3,7 +3,7 @@ package repository
 import (
 	"strings"
 
-"gopkg.in/Masterminds/squirrel.v1"
+	"gopkg.in/Masterminds/squirrel.v1"
 )
 
 type (

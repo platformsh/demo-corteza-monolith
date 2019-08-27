@@ -19,16 +19,16 @@ hooks:
         # Build the application for production
         yarn run build
 
-        mv dist webapp
+        # mv dist webapp
 
         # Move the configuration file into place.
         # This file uses the Platform.sh Node.js Config Reader
         # to get the host addresses of the relationships defined below
-        mv public _public
+        # mv public _public
     deploy:
         set -e
 
-        cp -R _public public
+        cp -R dist webapp
 
         PRIMARY_ROUTE=$(
             echo $PLATFORM_ROUTES | base64 -d | ${PLATFORM_APP_DIR}/jq -r \
@@ -39,7 +39,7 @@ hooks:
         )
         PRIMARY_ROUTE="${PRIMARY_ROUTE:8:-1}"
 
-        /bin/cat << EOF > public/config.js
+        /bin/cat << EOF > webapp/config.js
         // Config generated at runtime
         window.SystemAPI = \`https://system.api.${PRIMARY_ROUTE}\`
         window.MessagingAPI = \`https://messaging.api.${PRIMARY_ROUTE}\`
@@ -47,9 +47,9 @@ hooks:
         EOF
 
 mounts:
-    'public':
+    'webapp':
         source: local
-        source_path: public
+        source_path: webapp
 
 web:
     upstream:
@@ -58,11 +58,6 @@ web:
     locations:
         "/":
             root: "webapp"
-            passthru: true
-            index: ['index.html']
-
-        "/public":
-            root: "public"
             passthru: true
             index: ['index.html']
 

@@ -11,18 +11,45 @@ hooks:
     build: |
         set -e
 
+        wget https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64 -o jq
+
         yarn global add @vue/cli
         yarn install
 
         # Move the configuration file into place.
         # This file uses the Platform.sh Node.js Config Reader
         # to get the host addresses of the relationships defined below
-        cp public/config.platformsh.js public/config.js
+        mv public _public
 
         # Build the application for production
         yarn run build
 
         mv dist webapp
+    deploy:
+        set -e
+
+        cp -R _public public
+
+        PRIMARY_ROUTE=$(
+            echo $PLATFORM_ROUTES | base64 -d | ${PLATFORM_APP_DIR}/jq -r \
+            '. as $routes |
+                keys | .[] |
+                select($routes[.].primary) | .
+            '
+        )
+        PRIMARY_ROUTE="${PRIMARY_ROUTE:8:-1}"
+
+        /bin/cat << EOF > public/config.js
+        // Config generated at runtime
+        window.SystemAPI = \`https://system.api.${PRIMARY_ROUTE}\`
+        window.MessagingAPI = \`https://messaging.api.${PRIMARY_ROUTE}\`
+        window.ComposeAPI = \`https://compose.api.${PRIMARY_ROUTE}\`
+        EOF
+
+mounts:
+    'public':
+        source: local
+        source_path: public
 
 web:
     upstream:

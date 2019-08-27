@@ -5,7 +5,7 @@ require (
 	github.com/99designs/basicauth-go v0.0.0-20160802081356-2a93ba0f464d
 	github.com/Masterminds/squirrel v1.1.0
 	github.com/SentimensRG/ctx v0.0.0-20180729130232-0bfd988c655d
-	github.com/crusttech/go-oidc v2.0.0+incompatible
+	github.com/crusttech/go-oidc v2.0.0
 	github.com/davecgh/go-spew v1.1.1
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/disintegration/imaging v1.6.0
@@ -25,8 +25,6 @@ require (
 	github.com/kr/pretty v0.1.0 // indirect
 	github.com/lann/builder v0.0.0-20180802200727-47ae307949d0
 	github.com/markbates/goth v1.56.0
-	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
-	github.com/modern-go/reflect2 v1.0.1 // indirect
 	github.com/pkg/errors v0.8.1
 	github.com/platformsh/config-reader-go/v2 v2.2.3
 	github.com/pquerna/cachecontrol v0.0.0-20180517163645-1555304b9b35 // indirect

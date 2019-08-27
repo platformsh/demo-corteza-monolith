@@ -3,7 +3,7 @@ package ql
 import (
 	"fmt"
 
-	"github.com/Masterminds/squirrel"
+"gopkg.in/Masterminds/squirrel.v1"
 )
 
 // SelectStatement represents a SQL SELECT statement.

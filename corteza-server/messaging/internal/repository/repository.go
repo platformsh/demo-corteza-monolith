@@ -4,7 +4,7 @@ import (
 	"context"
 
 	"github.com/titpetric/factory"
-	"github.com/Masterminds/squirrel"
+"gopkg.in/Masterminds/squirrel.v1"
 
 	"github.com/cortezaproject/corteza-server/internal/auth"
 )

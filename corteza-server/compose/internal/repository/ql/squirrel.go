@@ -6,7 +6,7 @@ package ql
 import (
 	"fmt"
 
-	"github.com/Masterminds/squirrel"
+"gopkg.in/Masterminds/squirrel.v1"
 )
 
 // ToSql concatenates outputs and arguments from all nodes

@@ -5,7 +5,7 @@ import (
 
 	"github.com/pkg/errors"
 	"github.com/titpetric/factory"
-	"github.com/Masterminds/squirrel"
+"gopkg.in/Masterminds/squirrel.v1"
 )
 
 type (

@@ -16,15 +16,15 @@ hooks:
         yarn global add @vue/cli
         yarn install
 
-        # Move the configuration file into place.
-        # This file uses the Platform.sh Node.js Config Reader
-        # to get the host addresses of the relationships defined below
-        mv public _public
-
         # Build the application for production
         yarn run build
 
         mv dist webapp
+
+        # Move the configuration file into place.
+        # This file uses the Platform.sh Node.js Config Reader
+        # to get the host addresses of the relationships defined below
+        mv public _public
     deploy:
         set -e
 

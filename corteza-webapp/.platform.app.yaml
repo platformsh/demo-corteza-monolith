@@ -61,7 +61,7 @@ web:
         "/":
             root: "webapp"
             passthru: true
-            index: ['index.html']
+            allow: true
 
 
 relationships:

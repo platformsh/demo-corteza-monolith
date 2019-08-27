@@ -13,6 +13,7 @@ require (
 	github.com/getsentry/sentry-go v0.2.1
 	github.com/go-chi/chi v4.0.2+incompatible // indirect
 	github.com/go-chi/cors v1.0.0
+	github.com/go-chi/jwtauth v0.0.0-20190109153619-47840abb19b3
 	github.com/golang/mock v1.3.1
 	github.com/gomodule/redigo v1.7.0
 	github.com/gorilla/context v1.1.1 // indirect

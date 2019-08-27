@@ -7,7 +7,7 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/crusttech/go-oidc"
+	oidc "github.com/crusttech/go-oidc"
 	"go.uber.org/zap"
 
 	"github.com/cortezaproject/corteza-server/internal/settings"

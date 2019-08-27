@@ -58,7 +58,14 @@ web:
     locations:
         "/":
             root: "webapp"
-            passthru: "/index.html"
+            passthru: true
+            index: ['index.html']
+
+        "/public":
+            root: "public"
+            passthru: true
+            index: ['index.html']
+
 
 relationships:
     systemapi: "server:http"

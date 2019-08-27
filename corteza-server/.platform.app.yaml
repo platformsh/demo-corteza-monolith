@@ -60,9 +60,11 @@ hooks:
         # Create working directory
         mkdir -p "${PLATFORM_APP_DIR}/go/src/github.com/cortezaproject/corteza-server"
 
-        shopt -s extglob dotglob
-        mv !(${PLATFORM_APP_DIR}/go/) "${PLATFORM_APP_DIR}/go/src/github.com/cortezaproject/corteza-server/"
-        shopt -u dotglob
+        /bin/bash <<-EOF
+            shopt -s extglob dotglob
+            mv !(${PLATFORM_APP_DIR}/go/) "${PLATFORM_APP_DIR}/go/src/github.com/cortezaproject/corteza-server/"
+            shopt -u dotglob
+        EOF
 
         cd "${PLATFORM_APP_DIR}/go/src/github.com/cortezaproject/corteza-server/"
         # APP and DST var are now in `variables.env` block above

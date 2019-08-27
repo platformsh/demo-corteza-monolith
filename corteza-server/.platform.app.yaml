@@ -62,7 +62,7 @@ hooks:
 
         /bin/bash <<-EOF
             shopt -s extglob dotglob
-            mv !(${PLATFORM_APP_DIR}/go/) "${PLATFORM_APP_DIR}/go/src/github.com/cortezaproject/corteza-server/"
+            mv !(${PLATFORM_APP_DIR}/go) "${PLATFORM_APP_DIR}/go/src/github.com/cortezaproject/corteza-server/"
             shopt -u dotglob
         EOF
 

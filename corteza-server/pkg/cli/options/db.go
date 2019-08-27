@@ -2,8 +2,8 @@ package options
 
 import (
 	"time"
-	sqldsn "github.com/platformsh/config-reader-go/v2/sqldsn"
-	psh "github.com/platformsh/config-reader-go/v2"
+	sqldsn "github.com/platformsh/config-reader-go/sqldsn"
+	psh "github.com/platformsh/config-reader-go"
 )
 
 type (

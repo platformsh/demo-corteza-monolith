@@ -58,7 +58,8 @@ web:
     locations:
         "/":
             root: "webapp"
-            passthru: "/index.html"
+            passthru: true
+            index: ['index.html']
 
 
 relationships:

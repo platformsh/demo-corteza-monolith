@@ -28,7 +28,8 @@ hooks:
     deploy:
         set -e
 
-        cp -R dist webapp
+        mkdir -p webapp
+        cp -R dist/* webapp
 
         PRIMARY_ROUTE=$(
             echo $PLATFORM_ROUTES | base64 -d | ${PLATFORM_APP_DIR}/jq -r \
@@ -61,7 +62,7 @@ web:
         "/":
             root: "webapp"
             passthru: true
-            allow: true
+            index: ['index.html']
 
 
 relationships:

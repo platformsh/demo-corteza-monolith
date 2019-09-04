@@ -26,6 +26,23 @@ hooks:
         # This file uses the Platform.sh Node.js Config Reader
         # to get the host addresses of the relationships defined below
         # mv public _public
+
+        CORTEZA_APPS="admin auth compose messaging"
+
+        mkdir service-repos
+
+        for MICROAPP in $CORTEZA_APPS; do
+            git clone "https://github.com/cortezaproject/corteza-webapp-${MICROAPP}.git" service-repos/${MICROAPP}
+            cd service-repos/${MICROAPP}
+            yarn install --prefer-offline
+            yarn build
+            cd ${PLATFORM_APP_DIR}
+            mv service-repos/${MICROAPP}/dist dist/${MICROAPP}
+        done;
+
+        rm -rf service-repos .cache/yarn
+
+
     deploy:
         set -e
 

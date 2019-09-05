@@ -42,7 +42,7 @@ hooks:
             yarn build
             cd ${PLATFORM_APP_DIR}
             mv service-repos/${MICROAPP}/dist dist/${MICROAPP}
-            rm service-repos/${MICROAPP}
+            rm -rf service-repos/${MICROAPP}
         done;
 
         rm -rf service-repos .cache/yarn

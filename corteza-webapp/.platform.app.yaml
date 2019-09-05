@@ -85,25 +85,25 @@ web:
         protocol: http
     locations:
         "/messaging":
-            root: "webapp"
+            root: "webapp/messaging"
             passthru: true
-            index: ['messaging/index.html']
+            index: ['index.html']
         "/admin":
-            root: "webapp"
+            root: "webapp/admin"
             passthru: true
-            index: ['admin/index.html']
+            index: ['index.html']
         "/crm":
-            root: "webapp"
+            root: "webapp/crm"
             passthru: true
-            index: ['crm/index.html']
+            index: ['index.html']
         "/compose":
-            root: "webapp"
+            root: "webapp/compose"
             passthru: true
-            index: ['compose/index.html']
+            index: ['index.html']
         "/auth":
-            root: "webapp"
+            root: "webapp/auth"
             passthru: true
-            index: ['auth/index.html']
+            index: ['index.html']
         "/":
             root: "webapp"
             passthru: true

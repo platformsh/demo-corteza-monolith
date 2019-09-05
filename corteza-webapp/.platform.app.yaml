@@ -72,6 +72,12 @@ hooks:
 
         cat webapp/config.js
 
+        CORTEZA_APPS="admin auth compose messaging"
+
+        for MICROAPP in $CORTEZA_APPS; do
+            ln webapp/config.js webapp/${MICROAPP}/config.js
+        done
+
 mounts:
     'webapp':
         source: local

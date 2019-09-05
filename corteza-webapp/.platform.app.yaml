@@ -1,6 +1,6 @@
 name: webapp
 type: nodejs:10
-disk: 1024
+disk: 2048
 
 dependencies:
     nodejs:
@@ -32,12 +32,17 @@ hooks:
         mkdir service-repos
 
         for MICROAPP in $CORTEZA_APPS; do
+            echo "\n#########################################"
+            echo "# Building corteza-webapp-${MICROAPP}"
+            echo "#########################################\n"
+
             git clone "https://github.com/cortezaproject/corteza-webapp-${MICROAPP}.git" service-repos/${MICROAPP}
             cd service-repos/${MICROAPP}
             yarn install --prefer-offline
             yarn build
             cd ${PLATFORM_APP_DIR}
             mv service-repos/${MICROAPP}/dist dist/${MICROAPP}
+            rm service-repos/${MICROAPP}
         done;
 
         rm -rf service-repos .cache/yarn

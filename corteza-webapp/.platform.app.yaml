@@ -75,8 +75,8 @@ hooks:
         CORTEZA_APPS="admin auth compose messaging"
 
         for MICROAPP in $CORTEZA_APPS; do
-            ln webapp/config.js webapp/${MICROAPP}/config.js
-        done
+            ln webapp/config.js "webapp/${MICROAPP}/config.js"
+        done;
 
 mounts:
     'webapp':

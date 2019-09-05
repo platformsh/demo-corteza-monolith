@@ -87,28 +87,23 @@ web:
         "/messaging":
             root: "webapp"
             passthru: true
-            index:
-                - 'messaging/index.html'
+            index: ['messaging/index.html']
         "/admin":
             root: "webapp"
             passthru: true
-            index:
-                - 'admin/index.html'
+            index: ['admin/index.html']
         "/crm":
             root: "webapp"
             passthru: true
-            index:
-                - 'crm/index.html'
+            index: ['crm/index.html']
         "/compose":
             root: "webapp"
             passthru: true
-            index:
-                - 'compose/index.html'
+            index: ['compose/index.html']
         "/auth":
             root: "webapp"
             passthru: true
-            index:
-                - 'auth/index.html'
+            index: ['auth/index.html']
         "/":
             root: "webapp"
             passthru: true

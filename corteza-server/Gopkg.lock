@@ -339,18 +339,6 @@
   version = "v0.8.1"
 
 [[projects]]
-  branch = "master"
-  digest = "1:a4d3e107896187aff4f8cdf95c3663909ac4a5e765fad3cf3c60a758d53b7c6f"
-  name = "github.com/platformsh-upstream-forks/factory"
-  packages = [
-    ".",
-    "logger",
-    "resputil",
-  ]
-  pruneopts = "UT"
-  revision = "6aae0f1f161aff551607a0fa9b97c2b1a57e8ce9"
-
-[[projects]]
   digest = "1:5751d9194b86fb4903a10899066b5518b5ee1078fd066056899419c9dc800462"
   name = "github.com/platformsh-upstream-forks/sonyflake"
   packages = ["."]

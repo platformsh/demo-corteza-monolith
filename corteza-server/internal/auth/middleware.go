@@ -4,7 +4,7 @@ import (
 	"errors"
 	"net/http"
 
-	"github.com/titpetric/factory/resputil"
+	"github.com/platformsh-upstream-forks/factory/resputil"
 )
 
 func MiddlewareValidOnly(next http.Handler) http.Handler {

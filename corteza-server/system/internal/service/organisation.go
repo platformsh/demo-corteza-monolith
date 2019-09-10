@@ -3,7 +3,7 @@ package service
 import (
 	"context"
 
-	"github.com/titpetric/factory"
+	"github.com/platformsh-upstream-forks/factory"
 	"go.uber.org/zap"
 
 	"github.com/cortezaproject/corteza-server/system/internal/repository"

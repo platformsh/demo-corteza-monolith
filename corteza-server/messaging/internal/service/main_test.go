@@ -8,13 +8,13 @@ import (
 	"os"
 	"testing"
 
-	"github.com/titpetric/factory"
+	"github.com/platformsh-upstream-forks/factory"
 	"go.uber.org/zap"
 
 	messagingMigrate "github.com/cortezaproject/corteza-server/messaging/db"
 	"github.com/cortezaproject/corteza-server/pkg/cli/options"
 	"github.com/cortezaproject/corteza-server/pkg/logger"
-	dbLogger "github.com/titpetric/factory/logger"
+	dbLogger "github.com/platformsh-upstream-forks/factory/logger"
 )
 
 type mockDB struct{}

@@ -13,7 +13,7 @@ import (
 	"github.com/go-chi/chi"
 	"github.com/pkg/errors"
 	"github.com/spf13/cobra"
-	"github.com/titpetric/factory/resputil"
+	"github.com/platformsh-upstream-forks/factory/resputil"
 	"go.uber.org/zap"
 
 	"github.com/cortezaproject/corteza-server/internal/auth"

@@ -9,7 +9,7 @@ import (
 	"github.com/dgrijalva/jwt-go"
 	"github.com/go-chi/jwtauth"
 	"github.com/pkg/errors"
-	"github.com/titpetric/factory/resputil"
+	"github.com/platformsh-upstream-forks/factory/resputil"
 )
 
 type (

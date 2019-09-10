@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/titpetric/factory"
+	"github.com/platformsh-upstream-forks/factory"
 
 	"github.com/cortezaproject/corteza-server/messaging/types"
 )

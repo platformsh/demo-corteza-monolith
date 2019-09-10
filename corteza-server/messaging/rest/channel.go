@@ -10,7 +10,7 @@ import (
 	"github.com/cortezaproject/corteza-server/messaging/rest/request"
 	"github.com/cortezaproject/corteza-server/messaging/types"
 	"github.com/pkg/errors"
-	"github.com/titpetric/factory/resputil"
+	"github.com/platformsh-upstream-forks/factory/resputil"
 )
 
 var _ = errors.Wrap

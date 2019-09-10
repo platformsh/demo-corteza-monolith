@@ -340,6 +340,26 @@
 
 [[projects]]
   branch = "master"
+  digest = "1:a4d3e107896187aff4f8cdf95c3663909ac4a5e765fad3cf3c60a758d53b7c6f"
+  name = "github.com/platformsh-upstream-forks/factory"
+  packages = [
+    ".",
+    "logger",
+    "resputil",
+  ]
+  pruneopts = "UT"
+  revision = "d95a4e4bcfe70b770af6bb2221237627cd712250"
+
+[[projects]]
+  digest = "1:5751d9194b86fb4903a10899066b5518b5ee1078fd066056899419c9dc800462"
+  name = "github.com/platformsh-upstream-forks/sonyflake"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "bac1cd4a74eccfc5d0e68863577da163fc4aa1a7"
+  version = "v1.1.0"
+
+[[projects]]
+  branch = "master"
   digest = "1:bd9efe4e0b0f768302a1e2f0c22458149278de533e521206e5ddc71848c269a0"
   name = "github.com/pquerna/cachecontrol"
   packages = [
@@ -401,14 +421,6 @@
   revision = "9e8deecbddbd4989a3e8d003684b783412b41e7a"
 
 [[projects]]
-  branch = "master"
-  digest = "1:600523491befc5792f6ad6f946251ab99be193cb636e43c69c78aa17b3ca9861"
-  name = "github.com/sony/sonyflake"
-  packages = ["."]
-  pruneopts = "UT"
-  revision = "6d5bd61810093eae37d7d605d0cbdd845969b5b2"
-
-[[projects]]
   digest = "1:bb495ec276ab82d3dd08504bbc0594a65de8c3b22c6f2aaa92d05b73fbf3a82e"
   name = "github.com/spf13/afero"
   packages = [
@@ -442,18 +454,6 @@
   pruneopts = "UT"
   revision = "298182f68c66c05229eb03ac171abe6e309ee79a"
   version = "v1.0.3"
-
-[[projects]]
-  branch = "master"
-  digest = "1:6f9b3f65b090dd2c458eed073ce9a861836060077009f92148e9ccf5d0e42fe8"
-  name = "github.com/titpetric/factory"
-  packages = [
-    ".",
-    "logger",
-    "resputil",
-  ]
-  pruneopts = "UT"
-  revision = "ae4b02b9e03450360b3bf34ef3182eef2f42e2b3"
 
 [[projects]]
   digest = "1:a5158647b553c61877aa9ae74f4015000294e47981e6b8b07525edcbb0747c81"
@@ -653,7 +653,7 @@
 
 [[projects]]
   digest = "1:14a90eb1290bd0aa42848afa9ee2c9ce247abdb63c2cf614331670119760962f"
-  name = 	"gopkg.in/Masterminds/squirrel.v1"
+  name = "gopkg.in/Masterminds/squirrel.v1"
   packages = ["."]
   pruneopts = "UT"
   revision = "fa735ea14f09f8685fcf5e75db091feb5a410730"
@@ -728,13 +728,13 @@
     "github.com/markbates/goth/providers/linkedin",
     "github.com/markbates/goth/providers/openidConnect",
     "github.com/pkg/errors",
+    "github.com/platformsh-upstream-forks/factory",
+    "github.com/platformsh-upstream-forks/factory/logger",
+    "github.com/platformsh-upstream-forks/factory/resputil",
     "github.com/prometheus/client_golang/prometheus/promhttp",
     "github.com/spf13/afero",
     "github.com/spf13/cast",
     "github.com/spf13/cobra",
-    "github.com/titpetric/factory",
-    "github.com/titpetric/factory/logger",
-    "github.com/titpetric/factory/resputil",
     "go.uber.org/zap",
     "go.uber.org/zap/zapcore",
     "go.uber.org/zap/zapgrpc",

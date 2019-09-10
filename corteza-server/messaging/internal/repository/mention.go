@@ -6,7 +6,7 @@ import (
 	"time"
 
 	"github.com/jmoiron/sqlx"
-	"github.com/titpetric/factory"
+	"github.com/platformsh-upstream-forks/factory"
 
 	"github.com/cortezaproject/corteza-server/messaging/types"
 )

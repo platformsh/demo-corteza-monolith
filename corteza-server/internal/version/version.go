@@ -3,7 +3,7 @@ package version
 import (
 	"net/http"
 
-	"github.com/titpetric/factory/resputil"
+	"github.com/platformsh-upstream-forks/factory/resputil"
 )
 
 var (

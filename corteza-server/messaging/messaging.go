@@ -6,7 +6,7 @@ import (
 	"github.com/go-chi/chi"
 	_ "github.com/joho/godotenv/autoload"
 	"github.com/spf13/cobra"
-	"github.com/titpetric/factory"
+	"github.com/platformsh-upstream-forks/factory"
 
 	migrate "github.com/cortezaproject/corteza-server/messaging/db"
 	"github.com/cortezaproject/corteza-server/messaging/internal/service"

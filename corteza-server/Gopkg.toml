@@ -16,7 +16,7 @@ required = [
 
 [[constraint]]
   branch = "master"
-  name = "github.com/titpetric/factory"
+  name = "github.com/platformsh-upstream-forks/factory"
 
 [[constraint]]
   branch = "v2"

@@ -6,7 +6,7 @@ import (
 	"time"
 
 	"github.com/cortezaproject/corteza-server/internal/auth"
-	"github.com/titpetric/factory"
+	"github.com/platformsh-upstream-forks/factory"
 
 	"github.com/pkg/errors"
 	"go.uber.org/zap"

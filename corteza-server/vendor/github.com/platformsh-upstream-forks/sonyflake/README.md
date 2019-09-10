@@ -1,10 +1,10 @@
 Sonyflake
 =========
 
-[![GoDoc](https://godoc.org/github.com/sony/sonyflake?status.svg)](http://godoc.org/github.com/sony/sonyflake)
-[![Build Status](https://travis-ci.org/sony/sonyflake.svg?branch=master)](https://travis-ci.org/sony/sonyflake)
-[![Coverage Status](https://coveralls.io/repos/sony/sonyflake/badge.svg?branch=master&service=github)](https://coveralls.io/github/sony/sonyflake?branch=master)
-[![Go Report Card](https://goreportcard.com/badge/github.com/sony/sonyflake)](https://goreportcard.com/report/github.com/sony/sonyflake)
+[![GoDoc](https://godoc.org/github.com/platformsh-upstream-forks/sonyflake?status.svg)](http://godoc.org/github.com/platformsh-upstream-forks/sonyflake)
+[![Build Status](https://travis-ci.org/platformsh-upstream-forks/sonyflake.svg?branch=master)](https://travis-ci.org/platformsh-upstream-forks/sonyflake)
+[![Coverage Status](https://coveralls.io/repos/platformsh-upstream-forks/sonyflake/badge.svg?branch=master&service=github)](https://coveralls.io/github/platformsh-upstream-forks/sonyflake?branch=master)
+[![Go Report Card](https://goreportcard.com/badge/github.com/platformsh-upstream-forks/sonyflake)](https://goreportcard.com/report/github.com/platformsh-upstream-forks/sonyflake)
 
 Sonyflake is a distributed unique ID generator inspired by [Twitter's Snowflake](https://blog.twitter.com/2010/announcing-snowflake).  
 A Sonyflake ID is composed of
@@ -17,7 +17,7 @@ Installation
 ------------
 
 ```
-go get github.com/sony/sonyflake
+go get github.com/platformsh-upstream-forks/sonyflake
 ```
 
 Usage
@@ -64,7 +64,7 @@ But after the Sonyflake time is over the limit, NextID returns an error.
 AWS VPC and Docker
 ------------------
 
-The [awsutil](https://github.com/sony/sonyflake/blob/master/awsutil) package provides
+The [awsutil](https://github.com/platformsh-upstream-forks/sonyflake/blob/master/awsutil) package provides
 the function AmazonEC2MachineID that returns the lower 16-bit private IP address of the Amazon EC2 instance.
 It also works correctly on Docker
 by retrieving [instance metadata](http://docs.aws.amazon.com/en_us/AWSEC2/latest/UserGuide/ec2-instance-metadata.html).
@@ -75,11 +75,11 @@ So if each EC2 instance has a unique private IP address in AWS VPC,
 the lower 16 bits of the address is also unique.
 In this common case, you can use AmazonEC2MachineID as Settings.MachineID.
 
-See [example](https://github.com/sony/sonyflake/blob/master/example) that runs Sonyflake on AWS Elastic Beanstalk.
+See [example](https://github.com/platformsh-upstream-forks/sonyflake/blob/master/example) that runs Sonyflake on AWS Elastic Beanstalk.
 
 License
 -------
 
 The MIT License (MIT)
 
-See [LICENSE](https://github.com/sony/sonyflake/blob/master/LICENSE) for details.
+See [LICENSE](https://github.com/platformsh-upstream-forks/sonyflake/blob/master/LICENSE) for details.

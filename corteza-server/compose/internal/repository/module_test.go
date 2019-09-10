@@ -9,7 +9,7 @@ import (
 	"github.com/cortezaproject/corteza-server/compose/types"
 	"github.com/cortezaproject/corteza-server/internal/test"
 
-	"github.com/titpetric/factory"
+	"github.com/platformsh-upstream-forks/factory"
 )
 
 func TestModule_updateFields(t *testing.T) {

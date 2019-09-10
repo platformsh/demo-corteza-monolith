@@ -1,7 +1,7 @@
 package factory
 
 import (
-	"github.com/sony/sonyflake"
+	"github.com/platformsh-upstream-forks/sonyflake"
 	"time"
 )
 

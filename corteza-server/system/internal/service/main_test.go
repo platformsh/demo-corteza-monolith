@@ -7,11 +7,11 @@ import (
 	"os"
 	"testing"
 
-	"github.com/titpetric/factory"
+	"github.com/platformsh-upstream-forks/factory"
 
 	"github.com/cortezaproject/corteza-server/pkg/logger"
 	systemMigrate "github.com/cortezaproject/corteza-server/system/db"
-	dbLogger "github.com/titpetric/factory/logger"
+	dbLogger "github.com/platformsh-upstream-forks/factory/logger"
 )
 
 func TestMain(m *testing.M) {

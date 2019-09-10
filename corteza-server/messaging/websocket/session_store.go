@@ -3,7 +3,7 @@ package websocket
 import (
 	"sync"
 
-	"github.com/titpetric/factory"
+	"github.com/platformsh-upstream-forks/factory"
 )
 
 type (

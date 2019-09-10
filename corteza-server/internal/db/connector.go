@@ -6,8 +6,8 @@ import (
 	"time"
 
 	"github.com/pkg/errors"
-	"github.com/titpetric/factory"
-	"github.com/titpetric/factory/logger"
+	"github.com/platformsh-upstream-forks/factory"
+	"github.com/platformsh-upstream-forks/factory/logger"
 	"go.uber.org/zap"
 
 	"github.com/cortezaproject/corteza-server/pkg/cli/options"

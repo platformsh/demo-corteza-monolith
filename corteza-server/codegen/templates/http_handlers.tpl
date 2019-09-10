@@ -5,7 +5,7 @@ package {package}
 import (
 	"net/http"
 
-	"github.com/titpetric/factory/resputil"
+	"github.com/platformsh-upstream-forks/factory/resputil"
 )
 
 {foreach $calls as $call}

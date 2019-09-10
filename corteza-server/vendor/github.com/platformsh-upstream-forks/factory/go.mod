@@ -1,4 +1,4 @@
-module github.com/titpetric/factory
+module github.com/platformsh-upstream-forks/factory
 
 go 1.12
 
@@ -8,5 +8,5 @@ require (
 	github.com/jmoiron/sqlx v1.2.0
 	github.com/lib/pq v1.0.0
 	github.com/pkg/errors v0.8.1
-	github.com/sony/sonyflake v0.0.0-20181109022403-6d5bd6181009
+	github.com/platformsh-upstream-forks/sonyflake v1.1.0
 )

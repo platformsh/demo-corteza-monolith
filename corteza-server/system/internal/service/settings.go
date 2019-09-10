@@ -5,7 +5,7 @@ import (
 
 	_ "github.com/joho/godotenv/autoload"
 	"github.com/pkg/errors"
-	"github.com/titpetric/factory"
+	"github.com/platformsh-upstream-forks/factory"
 	"go.uber.org/zap"
 
 	internalSettings "github.com/cortezaproject/corteza-server/internal/settings"

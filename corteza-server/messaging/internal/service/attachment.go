@@ -13,7 +13,7 @@ import (
 	"github.com/disintegration/imaging"
 	"github.com/edwvee/exiffix"
 	"github.com/pkg/errors"
-	"github.com/titpetric/factory"
+	"github.com/platformsh-upstream-forks/factory"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 

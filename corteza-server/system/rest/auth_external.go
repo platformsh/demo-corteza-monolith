@@ -11,7 +11,7 @@ import (
 	"github.com/go-chi/chi"
 	"github.com/markbates/goth"
 	"github.com/markbates/goth/gothic"
-	"github.com/titpetric/factory/resputil"
+	"github.com/platformsh-upstream-forks/factory/resputil"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 

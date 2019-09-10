@@ -4,7 +4,7 @@ import (
 	"context"
 
 	"github.com/pkg/errors"
-	"github.com/titpetric/factory"
+	"github.com/platformsh-upstream-forks/factory"
 	"gopkg.in/Masterminds/squirrel.v1"
 )
 

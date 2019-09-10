@@ -8,7 +8,7 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/titpetric/factory/resputil"
+	"github.com/platformsh-upstream-forks/factory/resputil"
 
 	"github.com/pkg/errors"
 

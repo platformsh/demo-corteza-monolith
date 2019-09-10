@@ -3,7 +3,7 @@ package db
 import (
 	"context"
 
-	"github.com/titpetric/factory/logger"
+	"github.com/platformsh-upstream-forks/factory/logger"
 	"go.uber.org/zap"
 )
 

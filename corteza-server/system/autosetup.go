@@ -6,7 +6,7 @@ import (
 	"strings"
 
 	"github.com/spf13/cobra"
-	"github.com/titpetric/factory"
+	"github.com/platformsh-upstream-forks/factory"
 	"go.uber.org/zap"
 
 	"github.com/cortezaproject/corteza-server/pkg/cli"

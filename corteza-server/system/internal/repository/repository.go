@@ -4,7 +4,7 @@ import (
 	"context"
 
 	"github.com/lann/builder"
-	"github.com/titpetric/factory"
+	"github.com/platformsh-upstream-forks/factory"
 	squirrel 	"gopkg.in/Masterminds/squirrel.v1"
 
 	"github.com/cortezaproject/corteza-server/internal/auth"

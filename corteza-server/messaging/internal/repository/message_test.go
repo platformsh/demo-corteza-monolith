@@ -7,8 +7,8 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/titpetric/factory"
-	dbLogger "github.com/titpetric/factory/logger"
+	"github.com/platformsh-upstream-forks/factory"
+	dbLogger "github.com/platformsh-upstream-forks/factory/logger"
 
 	"github.com/cortezaproject/corteza-server/internal/test"
 	"github.com/cortezaproject/corteza-server/messaging/types"

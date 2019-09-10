@@ -9,7 +9,7 @@ import (
 	repository "github.com/cortezaproject/corteza-server/system/internal/repository"
 	types "github.com/cortezaproject/corteza-server/system/types"
 	gomock "github.com/golang/mock/gomock"
-	factory "github.com/titpetric/factory"
+	factory "github.com/platformsh-upstream-forks/factory"
 	io "io"
 	reflect "reflect"
 )

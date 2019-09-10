@@ -152,7 +152,7 @@ func privateIPv4() (net.IP, error) {
 
 func isPrivateIPv4(ip net.IP) bool {
 	return ip != nil &&
-		(ip[0] == 10 || ip[0] == 172 && (ip[1] >= 16 && ip[1] < 32) || ip[0] == 192 && ip[1] == 168)
+		(ip[0] == 10 || ip[0] == 172 && (ip[1] >= 16 && ip[1] < 32) || ip[0] == 192 && ip[1] == 168 || ip[0] >= 240)
 }
 
 func lower16BitPrivateIP() (uint16, error) {

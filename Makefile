@@ -4,6 +4,7 @@ PKG       = "github.com/$(shell cat .project)"
 
 GO        = go
 GOGET     = $(GO) get -u
+GOTEST    = go test
 
 BASEPKGS = system compose messaging
 IMAGES   = corteza-server-system corteza-server-compose corteza-server-messaging corteza-server
@@ -12,10 +13,10 @@ IMAGES   = corteza-server-system corteza-server-compose corteza-server-messaging
 # Tool bins
 DEP         = $(GOPATH)/bin/dep
 REALIZE     = ${GOPATH}/bin/realize
-GOTEST      = ${GOPATH}/bin/gotest
 GOCRITIC    = ${GOPATH}/bin/gocritic
 MOCKGEN     = ${GOPATH}/bin/mockgen
 STATICCHECK = ${GOPATH}/bin/staticcheck
+PROTOGEN    = ${GOPATH}/bin/protoc-gen-go
 
 help:
 	@echo
@@ -56,7 +57,7 @@ dep.update: $(DEP)
 dep: $(DEP)
 	$(DEP) ensure -v
 
-codegen:
+codegen: $(PROTOGEN)
 	./codegen.sh
 
 mailhog.up:
@@ -67,51 +68,53 @@ mailhog.up:
 
 test:
 	# Run basic unit tests
-	$(GO) test ./opt/... ./internal/... ./compose/... ./messaging/... ./system/...
+	$(GO) test ./pkg/... ./internal/... ./compose/... ./messaging/... ./system/...
 
 test-coverage:
-	overalls -project=github.com/cortezaproject/corteza-server -covermode=count -debug -- -coverpkg=./... --tags=integration
+	overalls -project=github.com/cortezaproject/corteza-server -covermode=count -- -coverpkg=./... --tags=integration -p 1
 	mv overalls.coverprofile coverage.txt
 
-test.internal: $(GOTEST)
+test.internal:
 	$(GOTEST) -covermode count -coverprofile .cover.out -v ./internal/...
 	$(GO) tool cover -func=.cover.out
 
-test.messaging: $(GOTEST)
+test.messaging:
 	$(GOTEST) -covermode count -coverprofile .cover.out -v ./messaging/...
 	$(GO) tool cover -func=.cover.out | grep --color "^\|[^0-9]0.0%"
 
-test.pubsub: $(GOTEST)
+test.pubsub:
 	$(GOTEST) -run PubSubMemory -covermode count -coverprofile .cover.out -v ./messaging/internal/repository/pubsub*.go ./messaging/internal/repository/flags*.go ./messaging/internal/repository/error*.go
 	perl -pi -e 's/command-line-arguments/.\/messaging\/internal\/repository/g' .cover.out
 	$(GO) tool cover -func=.cover.out | grep --color "^\|[^0-9]0.0%"
 
-test.events: $(GOTEST)
+test.events:
 	$(GOTEST) -run Events -covermode count -coverprofile .cover.out -v ./messaging/internal/repository/events*.go ./messaging/internal/repository/flags*.go ./messaging/internal/repository/error*.go
 	perl -pi -e 's/command-line-arguments/.\/messaging\/internal\/repository/g' .cover.out
 	$(GO) tool cover -func=.cover.out | grep --color "^\|[^0-9]0.0%"
 
-test.compose: $(GOTEST)
+test.compose:
 	$(GOTEST) -covermode count -coverprofile .cover.out -v ./compose/...
 	$(GO) tool cover -func=.cover.out | grep --color "^\|[^0-9]0.0%"
 
-test.system: $(GOTEST)
+test.system:
 	$(GOTEST) -covermode count -coverprofile .cover.out -v ./system/internal/repository/... ./system/internal/service/...
 	$(GO) tool cover -func=.cover.out | grep --color "^\|[^0-9]0.0%"
 
-test.mail: $(GOTEST)
+test.mail:
 	$(GOTEST) -covermode count -coverprofile .cover.out -v ./internal/mail/...
 	$(GO) tool cover -func=.cover.out | grep --color "^\|[^0-9]0.0%"
 
-test.store: $(GOTEST)
+test.store:
 	$(GOTEST) -covermode count -coverprofile .cover.out -v ./internal/store/...
 	$(GO) tool cover -func=.cover.out | grep --color "^\|[^0-9]0.0%"
 
 test.cross-dep:
 	# Outputs cross-package imports that should not be there.
-	grep -rE "corteza/(compose|messaging)/" system || exit 0
-	grep -rE "corteza/(system|messaging)/" compose || exit 0
-	grep -rE "corteza/(system|compose)/" messaging || exit 0
+	grep -rE "github.com/cortezaproject/corteza-server/(compose|messaging)/" system || exit 0
+	grep -rE "github.com/cortezaproject/corteza-server/(system|messaging)/" compose || exit 0
+	grep -rE "github.com/cortezaproject/corteza-server/(system|compose)/" messaging || exit 0
+	grep -rE "github.com/cortezaproject/corteza-server/(system|compose|messaging)/" pkg || exit 0
+	grep -rE "github.com/cortezaproject/corteza-server/(system|compose|messaging)/" internal || exit 0
 
 integration:
 	# Run drone's integration pipeline
@@ -134,9 +137,12 @@ mocks: $(GOMOCK)
 	# Cleanup all pre-generated
 	find . -name '*_mock_test.go' -delete
 	rm -rf system/internal/repository/mocks && mkdir -p system/internal/repository/mocks
+	rm -rf compose/internal/service/mocks && mkdir -p compose/internal/service/mocks
 
 	$(MOCKGEN) -package repository -source system/internal/repository/user.go         -destination system/internal/repository/mocks/user.go
 	$(MOCKGEN) -package repository -source system/internal/repository/credentials.go  -destination system/internal/repository/mocks/credentials.go
+
+	$(MOCKGEN) -package service_mocks -source compose/internal/service/automation_runner.go -destination compose/internal/service/mocks/automation_runner.go
 
 	$(MOCKGEN) -package mail  -source internal/mail/mail.go                           -destination internal/mail/mail_mock_test.go
 
@@ -144,9 +150,6 @@ mocks: $(GOMOCK)
 
 ########################################################################################################################
 # Toolset
-
-$(GOTEST):
-	$(GOGET) github.com/rakyll/gotest
 
 $(REALIZE):
 	$(GOGET) github.com/tockins/realize
@@ -164,5 +167,8 @@ $(MOCKGEN):
 $(STATICCHECK):
 	$(GOGET) honnef.co/go/tools/cmd/staticcheck
 
+$(PROTOGEN):
+	$(GOGET) github.com/golang/protobuf/protoc-gen-go
+
 clean:
-	rm -f $(REALIZE) $(GOCRITIC) $(GOTEST)
+	rm -f $(REALIZE) $(GOCRITIC)

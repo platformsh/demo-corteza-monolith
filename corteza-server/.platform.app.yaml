@@ -5,7 +5,6 @@ disk: 1024
 variables:
     env:
         APP: "monolith"
-        DST: "${PLATFORM_APP_DIR}"
 
 hooks:
     build: |
@@ -73,7 +72,7 @@ hooks:
         LDFLAGS="${LDFLAGS} -X github.com/cortezaproject/corteza-server/internal/version.BuildTime=${BUILD_TIME}"
         LDFLAGS="${LDFLAGS} -X github.com/cortezaproject/corteza-server/internal/version.Version=${GIT_TAG}"
 
-        go build -ldflags "${LDFLAGS}" -o "${DST}/corteza-server-${APP}" ./cmd/${APP}/*.go
+        go build -ldflags "${LDFLAGS}" -o "${PLATFORM_APP_DIR}/corteza-server-${APP}" ./cmd/${APP}/*.go
 
         ##########
         # Configuring the environment
@@ -104,7 +103,7 @@ web:
         socket_family: tcp
         protocol: http
     commands:
-        start: ${DST}/corteza-server-${APP} serve-api
+        start: ${PLATFORM_APP_DIR}/corteza-server-${APP} serve-api
     locations:
         /:
             # This will direct all requests to the server unconditionally

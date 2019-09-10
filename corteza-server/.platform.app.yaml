@@ -5,7 +5,7 @@ disk: 1024
 variables:
     env:
         APP: "monolith"
-        DST: "bin"
+        DST: "${PLATFORM_APP_DIR}"
 
 hooks:
     build: |
@@ -104,7 +104,7 @@ web:
         socket_family: tcp
         protocol: http
     commands:
-        start: ./${DST}/corteza-server-${APP} serve-api
+        start: ${DST}/corteza-server-${APP} serve-api
     locations:
         /:
             # This will direct all requests to the server unconditionally

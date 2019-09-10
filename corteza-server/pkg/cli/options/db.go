@@ -18,19 +18,22 @@ type (
 )
 
 func DB(pfix string) (o *DBOpt) {
+	var dsn string
 	config, err := psh.NewRuntimeConfig()
 	if err != nil {
-		dsn := "corteza:corteza@tcp(db:3306)/corteza?collation=utf8mb4_general_ci"
+		dsn = "corteza:corteza@tcp(db:3306)/corteza?collation=utf8mb4_general_ci"
 	} else {
 		credentials, err := config.Credentials("db")
 		if err != nil {
 			panic(err)
 		}
 		
-		dsn, err := sqldsn.FormattedCredentials(credentials)
+		formatted, err := sqldsn.FormattedCredentials(credentials)
 		if err != nil {
 			panic(err)
 		}
+		
+		dsn = formatted
 	}
 	
 	o = &DBOpt{

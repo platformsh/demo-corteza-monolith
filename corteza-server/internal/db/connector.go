@@ -9,9 +9,6 @@ import (
 	"github.com/platformsh-upstream-forks/factory"
 	"github.com/platformsh-upstream-forks/factory/logger"
 	"go.uber.org/zap"
-	
-	sqldsn "github.com/platformsh/config-reader-go/sqldsn"
-	psh "github.com/platformsh/config-reader-go"
 
 	"github.com/cortezaproject/corteza-server/pkg/cli/options"
 	"github.com/cortezaproject/corteza-server/pkg/sentry"

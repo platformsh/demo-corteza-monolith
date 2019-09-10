@@ -2,6 +2,9 @@ package options
 
 import (
 	"time"
+
+	sqldsn "github.com/platformsh/config-reader-go/sqldsn"
+	psh "github.com/platformsh/config-reader-go"
 )
 
 type (
@@ -15,8 +18,23 @@ type (
 )
 
 func DB(pfix string) (o *DBOpt) {
+	config, err := psh.NewRuntimeConfig()
+	if err != nil {
+		dsn := "corteza:corteza@tcp(db:3306)/corteza?collation=utf8mb4_general_ci"
+	} else {
+		credentials, err := config.Credentials("db")
+		if err != nil {
+			panic(err)
+		}
+		
+		dsn, err := sqldsn.FormattedCredentials(credentials)
+		if err != nil {
+			panic(err)
+		}
+	}
+	
 	o = &DBOpt{
-		DSN:      "corteza:corteza@tcp(db:3306)/corteza?collation=utf8mb4_general_ci",
+		DSN:      dsn,
 		Logger:   false,
 		MaxTries: 100,
 		Delay:    5 * time.Second,

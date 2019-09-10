@@ -28,6 +28,15 @@ steps:
       from_secret: docker_hub_username
     password:
       from_secret: docker_hub_password
+  when:
+#    this does not work as expected:
+#    time="2019-08-23T11:50:35Z" level=info msg="skipping automated docker build for refs/heads/feature-automation"
+#    ref:
+#      - refs/heads/master
+#      - refs/heads/beta
+#      - refs/heads/feature-*
+#      - refs/tags/20??.*.*
+    events: [ tag, push ]
 
 - name: corteza-server-system
   image: plugins/docker
@@ -68,12 +77,6 @@ steps:
 
 
 trigger:
-  branch:
-    - master
-  refs:
-    - refs/tags/v20??.*
-  event:
-    - push
 
 ---
 workspace:
@@ -100,9 +103,9 @@ steps:
   commands:
   - go build ./cmd/...
   - wait-for-it.sh -t 60 --strict corteza-db:3306 -- echo "corteza-db is up"
-  - gotest -v --tags="migrations" ./system/db/...
-  - gotest -v --tags="migrations" ./compose/db/...
-  - gotest -v --tags="migrations" ./messaging/db/...
+  - go test -v --tags="migrations" ./system/db/...
+  - go test -v --tags="migrations" ./compose/db/...
+  - go test -v --tags="migrations" ./messaging/db/...
   - go test -run=^$ --tags="integration" ./cmd/... ./internal/... ./compose/... ./messaging/... ./system/...
   - make test-coverage
 
@@ -126,3 +129,4 @@ services:
     MYSQL_PASSWORD: corteza-pwd
 
 trigger:
+  event: [ push, pull_request ]

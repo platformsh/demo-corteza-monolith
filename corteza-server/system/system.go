@@ -2,14 +2,17 @@ package system
 
 import (
 	"context"
+	"net"
 
 	_ "github.com/joho/godotenv/autoload"
 	"github.com/spf13/cobra"
 	"github.com/titpetric/factory"
+	"go.uber.org/zap"
 
 	"github.com/cortezaproject/corteza-server/pkg/cli"
 	"github.com/cortezaproject/corteza-server/system/commands"
 	migrate "github.com/cortezaproject/corteza-server/system/db"
+	"github.com/cortezaproject/corteza-server/system/grpc"
 	"github.com/cortezaproject/corteza-server/system/internal/auth/external"
 	"github.com/cortezaproject/corteza-server/system/internal/service"
 	"github.com/cortezaproject/corteza-server/system/rest"
@@ -40,7 +43,9 @@ func Configure() *cli.Config {
 			servicesInitialized = true
 
 			// storagePath := options.EnvString("", "SYSTEM_STORAGE_PATH", "var/store")
-			cli.HandleError(service.Init(ctx, c.Log))
+			cli.HandleError(service.Init(ctx, c.Log, service.Config{
+				Corredor: *c.ScriptRunner,
+			}))
 
 		},
 
@@ -69,6 +74,37 @@ func Configure() *cli.Config {
 					service.DefaultAuthSettings, _ = service.DefaultSettings.LoadAuthSettings()
 				}
 
+				{
+					var (
+						grpcLog     = c.Log.Named("grpc-server")
+						grpcLogConn = grpcLog.With(zap.String("addr", c.GRPCServerSystem.Addr))
+					)
+
+					// Temporary gRPC server initialization location
+					// @todo move out of system Configure
+					grpcServer := grpc.NewServer()
+
+					ln, err := net.Listen(c.GRPCServerSystem.Network, c.GRPCServerSystem.Addr)
+					if err != nil {
+						grpcLogConn.Error("could not start gRPC server", zap.Error(err))
+					}
+
+					go func() {
+						select {
+						case <-ctx.Done():
+							grpcLogConn.Debug("shutting down")
+							grpcServer.GracefulStop()
+							_ = ln.Close()
+						}
+					}()
+
+					go func() {
+						grpcLogConn.Info("Starting gRPC server")
+						err := grpcServer.Serve(ln)
+						grpcLogConn.Info("stopped", zap.Error(err))
+					}()
+				}
+
 				// Initialize external authentication (from default settings)
 				external.Init()
 				go service.Watchers(ctx)
@@ -92,6 +128,9 @@ func Configure() *cli.Config {
 			},
 			func(ctx context.Context, c *cli.Config) *cobra.Command {
 				return commands.Roles(ctx, c)
+			},
+			func(ctx context.Context, c *cli.Config) *cobra.Command {
+				return commands.Sink(ctx, c)
 			},
 		},
 

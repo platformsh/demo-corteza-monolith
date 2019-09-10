@@ -33,3 +33,13 @@ required = [
 [[constraint]]
   name = "github.com/gabriel-vasile/mimetype"
   version = "0.3.17"
+
+# [[constraint]]
+#   name = "gopkg.in/platformsh/config-reader-go.v2"
+#   version = "2.2.3"
+  
+[[override]]
+  name = "github.com/platformsh/config-reader-go"
+  branch = "no-ver"
+  source = "https://github.com/platformsh/config-reader-go.git"
+  

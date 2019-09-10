@@ -114,8 +114,6 @@ web:
             root: "webapp"
             passthru: true
             index: ['index.html']
-            headers:
-                Access-Control-Allow-Origin: "*"
 
 
 relationships:

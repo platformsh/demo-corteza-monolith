@@ -348,7 +348,7 @@
     "resputil",
   ]
   pruneopts = "UT"
-  revision = "d95a4e4bcfe70b770af6bb2221237627cd712250"
+  revision = "6aae0f1f161aff551607a0fa9b97c2b1a57e8ce9"
 
 [[projects]]
   digest = "1:5751d9194b86fb4903a10899066b5518b5ee1078fd066056899419c9dc800462"

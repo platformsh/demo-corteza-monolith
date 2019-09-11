@@ -82,7 +82,7 @@ hooks:
 
         #########
         # Move .environment file into place
-        mv .env.platformsh .environment
+        mv .env.platformsh "${PLATFORM_APP_DIR}/.environment"
 
 relationships:
     db: "mysqldb:corteza"

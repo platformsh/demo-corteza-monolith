@@ -103,7 +103,7 @@ web:
         socket_family: tcp
         protocol: http
     commands:
-        start: LOG_LEVEL="debug" ${PLATFORM_APP_DIR}/corteza-server-${APP} serve-api
+        start: LOG_LEVEL="debug" HTTP_ENABLE_DEBUG_ROUTE=true ${PLATFORM_APP_DIR}/corteza-server-${APP} serve-api
     locations:
         /:
             # This will direct all requests to the server unconditionally

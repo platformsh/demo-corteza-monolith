@@ -5,15 +5,3 @@
 "https://api.{default}/":
     type: upstream
     upstream: "server:http"
-
-"https://system.api.{default}/":
-    type: upstream
-    upstream: "server:http"
-
-"https://messaging.api.{default}/":
-    type: upstream
-    upstream: "server:http"
-
-"https://compose.api.{default}/":
-    type: upstream
-    upstream: "server:http"

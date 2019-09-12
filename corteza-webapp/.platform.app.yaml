@@ -65,9 +65,9 @@ hooks:
         echo "Creating config.js..."
         /bin/cat << EOF > webapp/config.js
         // Config generated at runtime
-        window.SystemAPI = \`https://system.api.${PRIMARY_ROUTE}\`
-        window.MessagingAPI = \`https://messaging.api.${PRIMARY_ROUTE}\`
-        window.ComposeAPI = \`https://compose.api.${PRIMARY_ROUTE}\`
+        window.SystemAPI = \`https://api.${PRIMARY_ROUTE}/system\`
+        window.MessagingAPI = \`https://api.${PRIMARY_ROUTE}/messaging\`
+        window.ComposeAPI = \`https://api.${PRIMARY_ROUTE}/compose\`
         EOF
 
         cat webapp/config.js

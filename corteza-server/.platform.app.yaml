@@ -46,9 +46,11 @@ hooks:
         # Install jq to parse PLATFORM_RELATIONSHIPS variable
 
         echo "Installing jq..."
-        wget https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64 -O jq
-        chmod +x jq
-        cp jq /usr/local/bin/
+        wget -q https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64 -O jq
+        
+        mkdir ${PLATFORM_APP_DIR}/bin
+        mv jq ${PLATFORM_APP_DIR}/bin/jq
+        chmod +x ${PLATFORM_APP_DIR}/bin/jq
 
         ########################################################################
         # Building the backend server

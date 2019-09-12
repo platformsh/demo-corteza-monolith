@@ -41,16 +41,6 @@ hooks:
 
         echo "Installing goware/statik..."
         go get -u github.com/goware/statik
-        
-        ##########
-        # Install jq to parse PLATFORM_RELATIONSHIPS variable
-
-        echo "Installing jq..."
-        wget -q https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64 -O jq
-        
-        mkdir ${PLATFORM_APP_DIR}/bin
-        mv jq ${PLATFORM_APP_DIR}/bin/jq
-        chmod +x ${PLATFORM_APP_DIR}/bin/jq
 
         ########################################################################
         # Building the backend server
@@ -89,6 +79,16 @@ hooks:
         # - Data volumes are set below in the `mounts` block
         # - Ports 80 and 443 are automatically exposed
         # - The entrypoint and cmd are defined in the `web.start` block
+        
+        ##########
+        # Install jq to parse PLATFORM_RELATIONSHIPS variable
+
+        echo "Installing jq..."
+        wget -q https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64 -O jq
+        
+        mkdir ${PLATFORM_APP_DIR}/bin
+        mv jq ${PLATFORM_APP_DIR}/bin/jq
+        chmod +x ${PLATFORM_APP_DIR}/bin/jq
 
         #########
         # Move .environment file into place

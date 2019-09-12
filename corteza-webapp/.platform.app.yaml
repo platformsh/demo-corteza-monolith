@@ -108,12 +108,19 @@ web:
             index: ['index.html']
         "/auth":
             root: "webapp/auth"
-            passthru: true
+            passthru: "index.html"
             index: ['index.html']
         "/":
             root: "webapp"
-            passthru: true
             index: ['index.html']
+            expires: 300s
+            scripts: true
+            allow: false
+            rules:
+                \.(css|js|gif|jpe?g|png|ttf|eot|woff2?|otf|html|ico|svg?)$:
+                    allow: true
+                ^/robots\.txt$:
+                    allow: true
 
 
 relationships:

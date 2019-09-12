@@ -41,6 +41,14 @@ hooks:
 
         echo "Installing goware/statik..."
         go get -u github.com/goware/statik
+        
+        ##########
+        # Install jq to parse PLATFORM_RELATIONSHIPS variable
+
+        echo "Installing jq..."
+        wget https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64 -O jq
+        chmod +x jq
+        cp jq /usr/local/bin/
 
         ########################################################################
         # Building the backend server
@@ -61,7 +69,7 @@ hooks:
 
         /bin/bash <<-EOF
             shopt -s extglob dotglob
-            mv !(go) "${PLATFORM_APP_DIR}/go/src/github.com/cortezaproject/corteza-server/"
+            mv !(go|jq|.env.platformsh) "${PLATFORM_APP_DIR}/go/src/github.com/cortezaproject/corteza-server/"
             shopt -u dotglob
         EOF
 
@@ -82,7 +90,8 @@ hooks:
 
         #########
         # Move .environment file into place
-        mv .env.platformsh "${PLATFORM_APP_DIR}/.environment"
+        cd ${PLATFORM_APP_DIR}
+        mv .env.platformsh .environment
 
 relationships:
     db: "mysqldb:corteza"

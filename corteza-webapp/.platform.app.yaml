@@ -108,7 +108,7 @@ web:
             index: ['index.html']
         "/auth":
             root: "webapp/auth"
-            passthru: "index.html"
+            passthru: "/index.html"
             index: ['index.html']
         "/":
             root: "webapp"

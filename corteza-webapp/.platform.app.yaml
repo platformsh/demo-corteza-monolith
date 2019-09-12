@@ -48,7 +48,7 @@ hooks:
         rm -rf service-repos .cache/yarn
 
 
-    deploy:
+    deploy: |
         set -e
 
         cp -R dist/* webapp/
@@ -60,7 +60,12 @@ hooks:
                 select($routes[.].primary) | .
             '
         )
-        PRIMARY_ROUTE="${PRIMARY_ROUTE:8:-1}"
+
+        # Regular ${var:offset:length} expansion doesn't work here
+        # because that is a bashism and the deploy hook uses dash
+
+        BASE_ROUTE="${PRIMARY_ROUTE#https://}"
+        BASE_ROUTE="${BASE_ROUTE%/}"
 
         echo "Creating config.js..."
         /bin/cat << EOF > webapp/config.js

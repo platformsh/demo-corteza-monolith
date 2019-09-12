@@ -15,8 +15,8 @@ required = [
   version = "0.8.0"
 
 [[constraint]]
-  branch = "master"
-  name = "github.com/platformsh-upstream-forks/factory"
+branch = "master"
+name = "github.com/platformsh-upstream-forks/factory"
 
 [[constraint]]
   branch = "v2"
@@ -33,13 +33,3 @@ required = [
 [[constraint]]
   name = "github.com/gabriel-vasile/mimetype"
   version = "0.3.17"
-
-# [[constraint]]
-#   name = "gopkg.in/platformsh/config-reader-go.v2"
-#   version = "2.2.3"
-  
-[[override]]
-  name = "github.com/platformsh/config-reader-go"
-  branch = "no-ver"
-  source = "https://github.com/platformsh/config-reader-go.git"
-  

@@ -359,18 +359,6 @@
   version = "v1.1.0"
 
 [[projects]]
-  branch = "no-ver"
-  digest = "1:a23f0523eb370266e3f3846a665cf3b07309cb84614127c53c9a73d9ff1dea76"
-  name = "github.com/platformsh/config-reader-go"
-  packages = [
-    ".",
-    "sqldsn",
-  ]
-  pruneopts = "UT"
-  revision = "fb95e13587536d9551de352b4b990b2693cb8b2e"
-  source = "https://github.com/platformsh/config-reader-go.git"
-
-[[projects]]
   branch = "master"
   digest = "1:bd9efe4e0b0f768302a1e2f0c22458149278de533e521206e5ddc71848c269a0"
   name = "github.com/pquerna/cachecontrol"
@@ -743,8 +731,6 @@
     "github.com/platformsh-upstream-forks/factory",
     "github.com/platformsh-upstream-forks/factory/logger",
     "github.com/platformsh-upstream-forks/factory/resputil",
-    "github.com/platformsh/config-reader-go",
-    "github.com/platformsh/config-reader-go/sqldsn",
     "github.com/prometheus/client_golang/prometheus/promhttp",
     "github.com/spf13/afero",
     "github.com/spf13/cast",

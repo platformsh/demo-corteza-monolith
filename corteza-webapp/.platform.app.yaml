@@ -70,9 +70,9 @@ hooks:
         echo "Creating config.js..."
         /bin/cat << EOF > webapp/config.js
         // Config generated at runtime
-        window.SystemAPI = \`https://api.${PRIMARY_ROUTE}/system\`
-        window.MessagingAPI = \`https://api.${PRIMARY_ROUTE}/messaging\`
-        window.ComposeAPI = \`https://api.${PRIMARY_ROUTE}/compose\`
+        window.SystemAPI = \`https://api.${BASE_ROUTE}/system\`
+        window.MessagingAPI = \`https://api.${BASE_ROUTE}/messaging\`
+        window.ComposeAPI = \`https://api.${BASE_ROUTE}/compose\`
         EOF
 
         cat webapp/config.js
@@ -97,24 +97,44 @@ web:
     locations:
         "/messaging":
             root: "webapp/messaging"
-            passthru: true
+            passthru: "/messaging/index.html"
             index: ['index.html']
+            allow: false
+            rules:
+                \.(css|js|gif|jpe?g|png|ttf|eot|woff2?|otf|html|ico|svg?)$:
+                    allow: true
         "/admin":
             root: "webapp/admin"
-            passthru: true
+            passthru: "/admin/index.html"
             index: ['index.html']
+            allow: false
+            rules:
+                \.(css|js|gif|jpe?g|png|ttf|eot|woff2?|otf|html|ico|svg?)$:
+                    allow: true
         "/crm":
             root: "webapp/crm"
-            passthru: true
+            passthru: "/index.html"
             index: ['index.html']
+            allow: false
+            rules:
+                \.(css|js|gif|jpe?g|png|ttf|eot|woff2?|otf|html|ico|svg?)$:
+                    allow: true
         "/compose":
             root: "webapp/compose"
-            passthru: true
+            passthru: "/compose/index.html"
             index: ['index.html']
+            allow: false
+            rules:
+                \.(css|js|gif|jpe?g|png|ttf|eot|woff2?|otf|html|ico|svg?)$:
+                    allow: true
         "/auth":
             root: "webapp/auth"
             passthru: "/auth/index.html"
             index: ['index.html']
+            allow: false
+            rules:
+                \.(css|js|gif|jpe?g|png|ttf|eot|woff2?|otf|html|ico|svg?)$:
+                    allow: true
         "/":
             root: "webapp"
             index: ['index.html']
